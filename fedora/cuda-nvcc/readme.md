@@ -1,6 +1,8 @@
 To build the docker image, run:
 docker build -t nvcc .
 sudo docker run -it --name=nvcc --entrypoint bash nvcc:latest
+To start container back up with shell
+sudo docker start -i nvcc
 
 There are notes for commands to make nvcc present in the dockerfile path.
 First run this 
