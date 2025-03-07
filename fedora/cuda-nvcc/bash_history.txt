@@ -1,0 +1,21 @@
+ls
+sudo dnf update
+sudo dnf config-manager addrepo --from-repofile=https://developer.download.nvidia.com/compute/cuda/repos/fedora41/$(uname -m)/cuda-fedora41.repo
+sudo dnf clean all
+sudo dnf module disable nvidia-driver
+sudo dnf config-manager setopt cuda-fedora41-$(uname -m).exclude=nvidia-driver,nvidia-modprobe,nvidia-persistenced,nvidia-settings,nvidia-libXNVCtrl,nvidia-xconfig
+sudo dnf -y install cuda-toolkit
+
+nvcc
+find /usr -type d -name cuda
+ls /usr/local/cuda-12.8/targets/x86_64-linux/include/thrust//system/cuda/bin/
+ls /usr/local/cuda-12.8/targets/x86_64-linux/include/cuda
+ls /usr/local/cuda-12.8/targets/x86_64-linux/include/
+find /usr -name nvcc
+vim ~/.bashrc
+vi ~/.bashrc
+source ~/.bashrc
+nvcc
+vi ~/.bashrc
+exit
+exit
