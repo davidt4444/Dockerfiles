@@ -1,0 +1,7 @@
+.env
+.env.example
+.env.local
+.env.staging
+atuin/config/
+atuin/database/
+atuin/db_dumps/

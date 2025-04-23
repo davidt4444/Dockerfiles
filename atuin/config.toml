@@ -1,0 +1,4 @@
+sync_address = "http://localhost:8888"
+sync_frequency = "30m"
+filter_mode_shell_up_key_binding = "session"
+
