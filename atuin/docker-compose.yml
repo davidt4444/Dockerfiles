@@ -33,7 +33,7 @@ services:
       POSTGRES_DB: ${ATUIN_DB_NAME}
       POSTGRES_USER: ${ATUIN_DB_USERNAME}
       POSTGRES_PASSWORD: ${ATUIN_DB_PASSWORD}
-      SCHEDULE: "@daily"
+      SCHEDULE: "@monthly"
       BACKUP_DIR: /db_dumps
     volumes:
       - ./db_dumps:/db_dumps
