@@ -2,12 +2,6 @@ FROM ubuntu:latest
 RUN apt-get update 
 RUN apt-get upgrade -y
 RUN apt-get install -y openssh-client openssh-server
-RUN apt-get install -y xvfb
-RUN apt-get install -y x11vnc
-RUN apt-get install -y gnome-session
-RUN apt-get install -y scrot
-RUN apt-get install -y xterm
 RUN systemctl enable ssh
 EXPOSE 22
-EXPOSE 5900
 ENTRYPOINT service ssh restart && bash

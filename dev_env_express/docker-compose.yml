@@ -1,0 +1,17 @@
+services:
+  dev1:
+    build: .
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    volumes:
+      - "./workspace:/home/${USERNAME}/workspace"
+    environment:
+      USERNAME: ${USERNAME}
+      PASSWORD: ${PASSWORD}
+    networks:
+      - development_network
+networks:
+  development_network:
+    external: true
+    name: development-network
+
