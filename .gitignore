@@ -8,4 +8,5 @@ atuin/db_dumps/
 eclipse_che(minikube)/chectl-install.log
 eclipse_che(openshift)/crc-linux-2.49.0-amd64/
 eclipse_che(openshift)/crc-linux-amd64.tar.xz
+vpn_client/config/
 
