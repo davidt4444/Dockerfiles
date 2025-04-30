@@ -1,6 +1,7 @@
 services:
   dev1:
     build: .
+    # network_mode: "vpn_client-vpn_client-1"
     stdin_open: true # docker run -i
     tty: true        # docker run -t
     volumes:
