@@ -1,4 +1,6 @@
 FROM ubuntu:latest
+ARG USERNAME=devuser
+ARG PASSWORD=password
 RUN apt-get update 
 RUN apt-get upgrade -y
 RUN apt-get install -y openssh-client openssh-server
@@ -8,6 +10,7 @@ RUN apt-get install -y gnome-session
 RUN apt-get install -y scrot
 RUN apt-get install -y xterm
 RUN systemctl enable ssh
+RUN useradd -m $USERNAME && echo "$USERNAME:$PASSWORD" | chpasswd
 EXPOSE 22
 EXPOSE 5900
 ENTRYPOINT service ssh restart && bash
