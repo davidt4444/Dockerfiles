@@ -40,9 +40,8 @@ For repeats the next two commands
 
 Finally the setup
 ./crc setup
-./crc daemon
 Make sure to sub the full path of the pull-secret below
-./crc start --memory 12288 --disk-size=64 --pull-secret-file /home/dathigp/Downloads/pull-secret.txt
+./crc start --pull-secret-file /home/dathigp/Downloads/pull-secret.txt
 
 To stop the cluster
 ./crc stop
