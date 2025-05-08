@@ -1,4 +1,5 @@
-### install eclipse che
+### install openshift
+
 if kubectl not present 
 #### install kubectl
 https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-using-native-package-management
@@ -21,15 +22,6 @@ sudo apt-get install -y kubectl
 
 kubectl cluster-info
 
-if chectl is not present
-#### installing chectl
-https://eclipse.dev/che/docs/stable/administration-guide/installing-the-chectl-management-tool/
-
-Run 
-bash <(curl -sL  https://che-incubator.github.io/chectl/install.sh)
-which chectl
-chectl --version
-
 #### install openshift
 https://console.redhat.com/openshift/create/local
 download tarball
@@ -38,14 +30,42 @@ If you don't have xz
 sudo apt install xz-utils
 tar -xvf crc-linux-amd64.tar.xz
 cd crc-linux-2.49.0-amd64/
-crc setup
-crc start
+If you have a vpn on the server that runs on 10.0.0.x
+sudo systemctl stop openvpn@myserver
+sudo systemctl stop openvpn
 
-#### install eclipse che
-chectl server:delete
+For repeats the next two commands
+./crc delete -f
+./crc cleanup
 
-chectl server:deploy --platform openshift
+Finally the setup
+./crc setup
+./crc daemon
+Make sure to sub the full path of the pull-secret below
+./crc start --memory 12288 --disk-size=64 --pull-secret-file /home/dathigp/Downloads/pull-secret.txt
 
-chectl server:status
+To stop the cluster
+./crc stop
 
-chectl dashboard:open
+##### Problems you might face
+If you get can't connect a quick fix might be 
+kubectl proxy --port=8080 &
+To spawn on that port if unavailable
+
+If you get something about kvm_amd not loading 
+In the bios->Security->System security->enable virtualization
+Make a note in the logs so that someone doesn't try to use a software removal tool instead of the proper uninstall +|-(*)-|-
+
+To logout from terminal if normal process doesn't work
+sudo shutdown -r now 
+or
+sudo pkill -u username
+
+If it is an error for missing virtiofsd
+sudo apt install virtiofsd
+sudo apt install virt-manager
+
+If it is failing on copying the pull-secret (Try restart or log off first) or any number of other errors that stopping and starting don't solve, redownload the crc executable and 
+sudo rm -r ~/.crc
+and go back to the beginnning
+
