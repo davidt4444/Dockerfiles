@@ -68,3 +68,10 @@ If it is failing on copying the pull-secret (Try restart or log off first) or an
 sudo rm -r ~/.crc
 and go back to the beginnning
 
+#Use the openshift cli
+eval $(./crc oc-env)
+oc login -u developer https://api.crc.testing:6443
+
+#You can also use the crc console
+./crc console
+will launch a web based interface
